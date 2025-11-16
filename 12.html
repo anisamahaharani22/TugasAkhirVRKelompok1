@@ -1,0 +1,62 @@
+<html class="gr__gasolin_idv_tw">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pasar Rakyat Oro-oro Dowo</title>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no,user-scalable=no,minimal-ui"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="black" />
+
+    <script src="aframe-master.js"></script>
+    <script src="aframe-href-component.js"></script>
+  </head>
+
+  <body data-gr-c-s-loaded="true">
+    <a-scene canvas="" keyboard-shortcuts="" vr-mode-ui="">
+      <a-entity position="0 1.8 4">
+        <a-camera
+          id="camera"
+          look-controls=""
+          wasd-controls-enabled="false"
+          camera="active:true"
+          rotation="-1.3750987083139854 -3.0939720937064483 0"
+          position="0 0 0"
+        >
+          <a-ring
+            radius-outer="0.30"
+            radius-inner="0.20"
+            position="0 0 -3"
+            material="color: #C78CA0; shader: flat"
+            cursor="maxDistance: 30; fuse: true"
+            geometry="primitive:ring;radiusOuter:0.30;radiusInner:0.20"
+            raycaster=""
+            scale="0.4628376812078244 0.4628376812078244 0.4628376812078244"
+          >
+            <a-animation
+              begin="click"
+              easing="ease-in"
+              attribute="scale"
+              fill="backwards"
+              from="0.1 0.1 0.1"
+              to="1 1 1"
+              dur="150"
+            ></a-animation>
+            <a-animation
+              begin="fusing"
+              easing="ease-in"
+              attribute="scale"
+              fill="forwards"
+              from="1 1 1"
+              to="0.1 0.1 0.1"
+              dur="1500"
+            ></a-animation>
+          </a-ring>
+        </a-camera>
+      </a-entity>
+
+      <a-sky src="asset/12.JPG" rotation="0 0 0"></a-sky>
+    </a-scene>
+  </body>
+</html>
