@@ -17,23 +17,16 @@
   <body data-gr-c-s-loaded="true">
     <a-scene canvas="" keyboard-shortcuts="" vr-mode-ui="">
 
-      <a-assets>
-        <img id="nama-toko1" src="#" crossorigin="anonymous" />
-        <img id="detail-toko1" src="#" crossorigin="anonymous" />
-        <img id="nama-toko2" src="#" crossorigin="anonymous" />
-        <img id="detail-toko2" src="#" crossorigin="anonymous" />
-      </a-assets>
-      
       <!--TOKO PASTEL PREMIUM-->
-      <a-image src="asset/Logo Toko.png" position="4 1.5 10" scale="4 4 4" rotation="0 200 0"></a-image>
+      <a-image id="btn-paspre" src="asset/Logo Toko.png" position="4 1.5 10" scale="4 4 4" rotation="0 200 0"></a-image>
      <!--TOKO PAK MAD-->
-      <a-image src="asset/Logo Toko.png" position="-1 3 1" scale="3 3 3" rotation="0 200 0"></a-image>
+      <a-image id="btn-mad" src="asset/Logo Toko.png" position="-1 3 1" scale="3 3 3" rotation="0 200 0"></a-image>
      <!--TOKO BU IKA-->
-      <a-image src="asset/Logo Toko.png" position="-11 4 12" scale="5 5 5" rotation="0 290 0"></a-image>
+      <a-image id="btn-ika" src="asset/Logo Toko.png" position="-11 4 12" scale="5 5 5" rotation="0 290 0"></a-image>
      <!--TOKO PAK HADI-->
-      <a-image src="asset/Logo Toko.png" position="-11 4 1" scale="5 5 5" rotation="0 290 0"></a-image>
+      <a-image id="btn-hadi" src="asset/Logo Toko.png" position="-11 4 1" scale="5 5 5" rotation="0 290 0"></a-image>
      <!--CIK LING-->
-      <a-image src="asset/Logo Toko.png" position="-3 3.5 12" scale="3 3 3" rotation="0 290 0"></a-image>
+      <a-image id="btn-ling" src="asset/Logo Toko.png" position="-3 3.5 12" scale="3 3 3" rotation="0 290 0"></a-image>
      
       <a-entity position="0 1.8 4">
         <a-camera
@@ -98,5 +91,38 @@
 
       <a-sky src="asset/19.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
+       <div id="popup-overlay" class="popup-overlay">
+      <div id="popup-wrapper" class="popup-wrapper"></div>
+    </div>
+      <script type="module">
+      import { showPopup, initPopupClose } from "./popup.js";
+
+      initPopupClose();
+      
+      const btnPaspre = document.getElementById("btn-paspre");
+      const btnMad = document.getElementById("btn-mad");
+      const btnIka = document.getElementById("btn-ika");
+      const btnHadi = document.getElementById("btn-hadi");
+      const btnLing = document.getElementById("btn-ling");
+
+      btnPaspre.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/paspre_nd.jpg"]);
+      });
+
+      btnMad.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/mad_nd.jpg"]);
+      });
+
+      btnIka.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/ika_nd.jpg"]);
+      });
+
+       btnHadi.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/ika_nd.jpg"]);
+      });
+      btnLing.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/ling_nd.jpg"]);
+      });
+    </script>
   </body>
 </html>
