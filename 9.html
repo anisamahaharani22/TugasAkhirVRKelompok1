@@ -127,15 +127,6 @@
         rotation="0 90 0"
       ></a-image>
 
-      <!-- LOGO TOKO LUMPUR KENTANG 27 -->
-      <a-image
-        id="btn-lumpur"
-        src="asset/Logo Toko.png"
-        scale="3 3 3"
-        position="-4 2.2 7.5"
-        rotation="0 90 0"
-      ></a-image>
-
       <a-sky src="asset/9.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
 
@@ -148,15 +139,7 @@
       import { showPopup, initPopupClose } from "./popup.js";
 
       initPopupClose();
-
-      const btnLumpur = document.getElementById("btn-lumpur");
-      btnLumpur.addEventListener("click", () => {
-        showPopup([
-          "asset/detail-toko/lumpur_nama.jpg",
-          "asset/detail-toko/lumpur_detail.jpg",
-        ]);
-      });
-
+      
       const btnSubai = document.getElementById("btn-subai");
       btnSubai.addEventListener("click", () => {
         showPopup([
