@@ -15,12 +15,12 @@
 
   <body data-gr-c-s-loaded="true">
     <a-scene canvas="" keyboard-shortcuts="" vr-mode-ui="">
-      
       <a-assets>
         <img id="nama-toko1" src="#" crossorigin="anonymous" />
         <img id="detail-toko1" src="#" crossorigin="anonymous" />
         <img id="nama-toko2" src="#" crossorigin="anonymous" />
         <img id="detail-toko2" src="#" crossorigin="anonymous" />
+        <audio id="musik" src="asset/Musik Pasar Oro-oro Dowo.mp3"></audio>
       </a-assets>
 
       <a-entity position="0 1.8 4">
@@ -63,12 +63,27 @@
           </a-ring>
         </a-camera>
       </a-entity>
-      
-       <!-- TOMBOL MASUK -->
+
+      <!-- TOMBOL MASUK -->
       <a-entity href="2.html" position="-8 3 5" rotation="0 90 0">
-            <a-plane color="#C78CA0" width="1.8" height="0.75" material="shader: flat; opacity: 0.8"></a-plane>
-            <a-text value="Masuk" align="center" color="#FFFFFF" width="3.5" position="0 0 0.01" scale="1.5 1.5 1.5"></a-text>
-        </a-entity>
+        <a-plane
+          color="#C78CA0"
+          width="1.8"
+          height="0.75"
+          material="shader: flat; opacity: 0.8"
+        ></a-plane>
+        <a-text
+          value="Masuk"
+          align="center"
+          color="#FFFFFF"
+          width="3.5"
+          position="0 0 0.01"
+          scale="1.5 1.5 1.5"
+        ></a-text>
+      </a-entity>
+
+      <!-- Musik -->
+      <a-entity sound="src: #musik; autoplay: true; loop: true"></a-entity>
 
       <a-sky src="asset/1.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
