@@ -11,26 +11,32 @@
 
     <script src="aframe-master.js"></script>
     <script src="aframe-href-component.js"></script>
+    
+    <link rel="stylesheet" href="popup.css" />
+
   </head>
 
   <body data-gr-c-s-loaded="true">
     <a-scene canvas="" keyboard-shortcuts="" vr-mode-ui="">
 
-      <a-assets>
-        <img id="nama-toko1" src="#" crossorigin="anonymous" />
-        <img id="detail-toko1" src="#" crossorigin="anonymous" />
-        <img id="nama-toko2" src="#" crossorigin="anonymous" />
-        <img id="detail-toko2" src="#" crossorigin="anonymous" />
-      </a-assets>
-
       <!-- LOGO TOKO BU AMIE -->
       <a-image
+        id="btn-amie"
         src="asset/Logo Toko.png"
         scale="3 3 3"
         position="-5 2.2 0"
         rotation="0 90 0"
       ></a-image>
       
+      <!-- LOGO TOKO P.SUPINA -->
+      <a-image
+        id="btn-supina"
+        src="asset/Logo Toko.png"
+        scale="3 3 3"
+        position="-5 2 8"
+        rotation="0 90 0"
+      ></a-image>
+
       <a-entity position="0 1.8 4">
         <a-camera
           id="camera"
@@ -105,5 +111,35 @@
 
       <a-sky src="asset/2.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
+
+    <a-sky src="asset/13.JPG" rotation="0 0 0"></a-sky>
+    </a-scene>
+
+     <div id="popup-overlay" class="popup-overlay">
+      <div id="popup-wrapper" class="popup-wrapper"></div>
+    </div>
+
+    <!-- ====================== SCRIPT ====================== -->
+    <script type="module">
+      import { showPopup, initPopupClose } from "./popup.js";
+
+      initPopupClose();
+
+      const btnAmie = document.getElementById("btn-amie");
+      btnAmie.addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/amie_nama.jpg",
+          "asset/detail-toko/amie_detail.jpg",
+        ]);
+      });
+
+      const btnSupina = document.getElementById("btn-supina");
+      btnSupina.addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/supina_nama.jpg",
+          "asset/detail-toko/supina_detail.jpg",
+        ]);
+      });
+    </script>
   </body>
 </html>
