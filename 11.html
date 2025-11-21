@@ -11,16 +11,13 @@
 
     <script src="aframe-master.js"></script>
     <script src="aframe-href-component.js"></script>
+    
+    <link rel="stylesheet" href="popup.css" />
+
   </head>
 
   <body data-gr-c-s-loaded="true">
     <a-scene canvas="" keyboard-shortcuts="" vr-mode-ui="">
-      <a-assets>
-        <img id="nama-toko1" src="#" crossorigin="anonymous" />
-        <img id="detail-toko1" src="#" crossorigin="anonymous" />
-        <img id="nama-toko2" src="#" crossorigin="anonymous" />
-        <img id="detail-toko2" src="#" crossorigin="anonymous" />
-      </a-assets>
 
       <a-entity position="0 1.8 4">
         <a-camera
@@ -79,16 +76,9 @@
         </a-triangle>
       </a-entity>
 
-      <!-- LOGO TOKO BU MURTI LPG PRACANGAN-->
+      <!-- LOGO TOKO PAK TO -->
       <a-image
-        src="asset/Logo Toko.png"
-        scale="3 3 3"
-        position="2 3 1"
-        rotation="0 0 0"
-      ></a-image>
-
-      <!-- LOGO TOKO -->
-      <a-image
+        id="btn-to"
         src="asset/Logo Toko.png"
         scale="3 3 3"
         position="-3 3 9"
@@ -97,5 +87,24 @@
 
       <a-sky src="asset/11.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
+
+    <div id="popup-overlay" class="popup-overlay">
+      <div id="popup-wrapper" class="popup-wrapper"></div>
+    </div>
+
+            <!-- ====================== SCRIPT ====================== -->
+    <script type="module">
+      import { showPopup, initPopupClose } from "./popup.js";
+
+      initPopupClose();
+
+      const btnTo = document.getElementById("btn-to");
+      btnTo.addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/to_nama.jpg",
+          "asset/detail-toko/to_detail.jpg",
+        ]);
+      });
+    </script>
   </body>
 </html>
