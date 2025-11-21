@@ -1,4 +1,4 @@
-<html class="gr__gasolin_idv_tw">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Pasar Rakyat Oro-oro Dowo</title>
@@ -6,166 +6,155 @@
       name="viewport"
       content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no,user-scalable=no,minimal-ui"
     />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="theme-color" content="black" />
 
     <script src="aframe-master.js"></script>
     <script src="aframe-href-component.js"></script>
+
+    <style>
+      .popup-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.75);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        backdrop-filter: blur(4px);
+        overflow-y: auto;
+      }
+
+      .popup-wrapper {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: fit-content;
+        max-width: 90vw;
+        max-height: 90vh;
+        padding: 20px;
+      }
+
+      .popup-card-container {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 18px;
+        width: 420px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+      }
+
+      .popup-title {
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .popup-image {
+        width: 100%;
+        border-radius: 10px;
+        display: block;
+      }
+    </style>
   </head>
 
   <body>
     <a-scene>
-
       <a-assets>
-        <!-- FOTO TOKO MBAK DINI -->
-        <img id="nama-dini" src="asset/17_3_2.jpg" crossorigin="anonymous" />
-        <img id="detail-dini" src="asset/17_3.jpg" crossorigin="anonymous" />
-
-        <!-- LOGO IKON -->
         <img id="logo" src="asset/Logo Toko.png" crossorigin="anonymous" />
       </a-assets>
 
-
-      <!-- ==================== ICON TOKO-TOKO ==================== -->
-
-      <!--TOKO B.SITI NURJANAH-->
-      <a-image src="#logo" position="5 3 10" scale="4 4 4" rotation="0 90 0"></a-image>
-
-      <!--TOKO YOSA BASO KUAH PEDAS-->
-      <a-image src="#logo" position="14 2 10" scale="5 5 5" rotation="0 90 0"></a-image>
-
-      <!--TOKO BU SITI&B.SUHANIK-->
-      <a-image src="#logo" position="-5 3 10" scale="4 4 4" rotation="0 90 0"></a-image>
-
-      <!--TOKO PAK HERI-->
-      <a-image src="#logo" position="4 0.5 -5" scale="4.5 4.5 4.5" rotation="0 180 0"></a-image>
-
-      <!--TOKO MBAK DINI (BISA DIKLIK)-->
-      <a-image 
+      <!-- ==================== ICON TOKO MBAK DINI ==================== -->
+      <a-image
         id="btn-dini"
         src="#logo"
         position="-9 0.5 -5"
         scale="5 5 5"
-        rotation="0 180 0">
+        rotation="0 180 0"
+      >
       </a-image>
 
-      <!--TOKO BU SRI-->
-      <a-image src="#logo" position="-17 0.5 -5" scale="6.5 6.5 6.5" rotation="0 180 0"></a-image>
-
-      <!--TOKO PECAN DELI-->
-      <a-image src="#logo" position="9 0.5 -5" scale="4.5 4.5 4.5" rotation="0 180 0"></a-image>
-
-
-<!-- ========================= POPUP TOKO MBAK DINI ========================= -->
-
-<a-entity id="popup-dini" visible="false" position="0 2 -3">
-
-  <!-- ========= BACKGROUND KIRI ========= -->
-  <a-plane 
-    width="4.4" 
-    height="5" 
-    color="#ffffff" 
-    opacity="0.4" 
-    position="-3.5 0 -0.02"
-    material="shader: flat">
-  </a-plane>
-
-  <!-- ========= BACKGROUND KANAN ========= -->
-  <a-plane 
-    width="4.4" 
-    height="5" 
-    color="#ffffff" 
-    opacity="0.4" 
-    position="2.25 0 -0.02"
-    material="shader: flat">
-  </a-plane>
-
-
-  <!-- TEKS NAMA TOKO (atas kiri) -->
-  <a-text 
-    value="Nama Toko"
-    color="#000000"
-    width="6"
-    position="-4.1 2.3 0.05">
-  </a-text>
-
-  <!-- TEKS DETAIL TOKO (atas kanan) -->
-  <a-text 
-    value="Detail Toko"
-    color="#000000"
-    width="6"
-    position="1.5 2.3 0.05">
-  </a-text>
-
-  <!-- FOTO NAMA TOKO – kiri -->
-  <a-image 
-    src="#nama-dini"
-    position="-3.45 0 0.2"
-    width="4.2" 
-    height="4.2">
-  </a-image>
-
-  <!-- FOTO DETAIL TOKO – kanan -->
-  <a-image 
-    src="#detail-dini"
-    position="2.25 0 0.02"
-    width="4.2" 
-    height="4.2">
-  </a-image>
-
-</a-entity>
-
-
+      <!-- CAMERA -->
       <a-entity position="0 1.8 4">
-        <a-camera
-          id="camera"
-          look-controls
-          wasd-controls-enabled="false">
-          
+        <a-camera id="camera" look-controls wasd-controls-enabled="false">
           <a-ring
             radius-outer="0.30"
             radius-inner="0.20"
             position="0 0 -3"
             material="color: #C78CA0; shader: flat"
             cursor="fuse: true; maxDistance: 30"
-            raycaster>
+            raycaster
+          >
           </a-ring>
-
         </a-camera>
       </a-entity>
 
-
-      <a-entity href="18.html" position="-5 0 5" rotation="-80 -35 0" scale="1.5 1.5 1.5">
-        <a-triangle 
-          color="#ffffff" 
-          vertex-a="0 0.3 0" 
-          vertex-b="-0.3 -0.3 0" 
-          vertex-c="0.3 -0.3 0">
-        </a-triangle>
-      </a-entity>
-
-      <a-entity href="18.html" position="7 0 5" rotation="-80 -75 0" scale="1.5 1.5 1.5">
-        <a-triangle 
-          color="#ffffff" 
-          vertex-a="0 0.3 0" 
-          vertex-b="-0.3 -0.3 0" 
-          vertex-c="0.3 -0.3 0">
-        </a-triangle>
-      </a-entity>
-
       <a-sky src="asset/17.JPG"></a-sky>
-
     </a-scene>
 
-    <!-- ==================== POPUP ==================== -->
+    <div id="popup-overlay" class="popup-overlay">
+      <div id="popup-wrapper" class="popup-wrapper"></div>
+    </div>
+
+    <!-- ====================== SCRIPT ====================== -->
     <script>
-      const btnDini = document.querySelector('#btn-dini');
-      const popupDini = document.querySelector('#popup-dini');
+      const popupOverlay = document.getElementById("popup-overlay");
+      const popupWrapper = document.getElementById("popup-wrapper");
 
-      btnDini.addEventListener('click', () => {
-        popupDini.setAttribute('visible', !popupDini.getAttribute('visible'));
+      //  ini script buat nampilin gambar popup
+      function showPopup(imageList) {
+        popupWrapper.innerHTML = "";
+
+        imageList.forEach((imgSrc, index) => {
+          let title =
+            imageList.length === 1
+              ? "Nama dan Detail Toko"
+              : index === 0
+              ? "Nama Toko"
+              : "Detail Toko";
+
+          // Container
+          const card = document.createElement("div");
+          card.className = "popup-card-container";
+
+          card.innerHTML = `
+            <div class="popup-title">${title}</div>
+            <img class="popup-image" src="${imgSrc}">
+          `;
+
+          popupWrapper.appendChild(card);
+        });
+
+        popupOverlay.style.display = "flex";
+      }
+
+      // Ini buat nutup kalo klik overlay
+      popupOverlay.addEventListener("click", (e) => {
+        if (e.target === popupOverlay) {
+          popupOverlay.style.display = "none";
+        }
       });
-    </script>
 
+      // MBAK DINI
+      const btnDini = document.getElementById("btn-dini");
+      //NANTI COPAS AJA DIBAWAHNYA SESUAI NAMA TOKONYA btn-dini nya ganti ID toko yang mau diklik
+
+      btnDini.addEventListener("click", () => {
+        showPopup([
+          "asset/17_3_2.jpg", // Nama Toko
+          "asset/17_3.jpg", // Detail Toko
+        ]);
+      });
+
+      //nah yang ini jugaaa copas aja ganti assetnya gambar 1 buat nama toko gambar 2 detail toko, tp kalo mau diisi 1 bole
+      // copasnya segini yaa
+      // btnDini.addEventListener("click", () => {
+      //   showPopup([
+      //     "asset/17_3_2.jpg", // Nama Toko
+      //     "asset/17_3.jpg"    // Detail Toko
+      //   ]);
+      // });
+    </script>
   </body>
 </html>
