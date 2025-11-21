@@ -13,76 +13,128 @@
     <script src="aframe-href-component.js"></script>
   </head>
 
-  <body data-gr-c-s-loaded="true">
-    <a-scene canvas="" keyboard-shortcuts="" vr-mode-ui="">
+  <body>
+    <a-scene>
 
       <a-assets>
-        <img id="nama-toko1" src="#" crossorigin="anonymous" />
-        <img id="detail-toko1" src="#" crossorigin="anonymous" />
-        <img id="nama-toko2" src="#" crossorigin="anonymous" />
-        <img id="detail-toko2" src="#" crossorigin="anonymous" />
+        <!-- FOTO TOKO MBAK DINI -->
+        <img id="nama-dini" src="asset/17_3_2.jpg" crossorigin="anonymous" />
+        <img id="detail-dini" src="asset/17_3.jpg" crossorigin="anonymous" />
+
+        <!-- LOGO IKON -->
+        <img id="logo" src="asset/Logo Toko.png" crossorigin="anonymous" />
       </a-assets>
 
+
+      <!-- ==================== ICON TOKO-TOKO ==================== -->
+
       <!--TOKO B.SITI NURJANAH-->
-      <a-image src="asset/Logo Toko.png" position="5 3 10" scale="4 4 4" rotation="0 90 0"></a-image>
+      <a-image src="#logo" position="5 3 10" scale="4 4 4" rotation="0 90 0"></a-image>
+
       <!--TOKO YOSA BASO KUAH PEDAS-->
-      <a-image src="asset/Logo Toko.png" position="14 2 10" scale="5 5 5" rotation="0 90 0"></a-image>
+      <a-image src="#logo" position="14 2 10" scale="5 5 5" rotation="0 90 0"></a-image>
+
       <!--TOKO BU SITI&B.SUHANIK-->
-      <a-image src="asset/Logo Toko.png" position="-5 3 10" scale="4 4 4" rotation="0 90 0"></a-image>
+      <a-image src="#logo" position="-5 3 10" scale="4 4 4" rotation="0 90 0"></a-image>
+
       <!--TOKO PAK HERI-->
-      <a-image src="asset/Logo Toko.png" position="4 0.5 -5" scale="4.5 4.5 4.5" rotation="0 180 0"></a-image>
-      <!--TOKO MBAK DINI-->  
-      <a-image src="asset/Logo Toko.png" position="-9 0.5 -5" scale="5 5 5" rotation="0 180 0"></a-image>
-      <!--TOKO BU SRI-->  
-      <a-image src="asset/Logo Toko.png" position="-17 0.5 -5" scale="6.5 6.5 6.5" rotation="0 180 0"></a-image>
+      <a-image src="#logo" position="4 0.5 -5" scale="4.5 4.5 4.5" rotation="0 180 0"></a-image>
+
+      <!--TOKO MBAK DINI (BISA DIKLIK)-->
+      <a-image 
+        id="btn-dini"
+        src="#logo"
+        position="-9 0.5 -5"
+        scale="5 5 5"
+        rotation="0 180 0">
+      </a-image>
+
+      <!--TOKO BU SRI-->
+      <a-image src="#logo" position="-17 0.5 -5" scale="6.5 6.5 6.5" rotation="0 180 0"></a-image>
+
       <!--TOKO PECAN DELI-->
-      <a-image src="asset/Logo Toko.png" position="9 0.5 -5" scale="4.5 4.5 4.5" rotation="0 180 0"></a-image>
+      <a-image src="#logo" position="9 0.5 -5" scale="4.5 4.5 4.5" rotation="0 180 0"></a-image>
+
+
+<!-- ========================= POPUP TOKO MBAK DINI ========================= -->
+
+<a-entity id="popup-dini" visible="false" position="0 2 -3">
+
+  <!-- ========= BACKGROUND KIRI ========= -->
+  <a-plane 
+    width="4.4" 
+    height="5" 
+    color="#ffffff" 
+    opacity="0.4" 
+    position="-3.5 0 -0.02"
+    material="shader: flat">
+  </a-plane>
+
+  <!-- ========= BACKGROUND KANAN ========= -->
+  <a-plane 
+    width="4.4" 
+    height="5" 
+    color="#ffffff" 
+    opacity="0.4" 
+    position="2.25 0 -0.02"
+    material="shader: flat">
+  </a-plane>
+
+
+  <!-- TEKS NAMA TOKO (atas kiri) -->
+  <a-text 
+    value="Nama Toko"
+    color="#000000"
+    width="6"
+    position="-4.1 2.3 0.05">
+  </a-text>
+
+  <!-- TEKS DETAIL TOKO (atas kanan) -->
+  <a-text 
+    value="Detail Toko"
+    color="#000000"
+    width="6"
+    position="1.5 2.3 0.05">
+  </a-text>
+
+  <!-- FOTO NAMA TOKO – kiri -->
+  <a-image 
+    src="#nama-dini"
+    position="-3.45 0 0.2"
+    width="4.2" 
+    height="4.2">
+  </a-image>
+
+  <!-- FOTO DETAIL TOKO – kanan -->
+  <a-image 
+    src="#detail-dini"
+    position="2.25 0 0.02"
+    width="4.2" 
+    height="4.2">
+  </a-image>
+
+</a-entity>
 
 
       <a-entity position="0 1.8 4">
         <a-camera
           id="camera"
-          look-controls=""
-          wasd-controls-enabled="false"
-          camera="active:true"
-          rotation="-1.3750987083139854 -3.0939720937064483 0"
-          position="0 0 0"
-        >
+          look-controls
+          wasd-controls-enabled="false">
+          
           <a-ring
             radius-outer="0.30"
             radius-inner="0.20"
             position="0 0 -3"
             material="color: #C78CA0; shader: flat"
-            cursor="maxDistance: 30; fuse: true"
-            geometry="primitive:ring;radiusOuter:0.30;radiusInner:0.20"
-            raycaster=""
-            scale="0.4628376812078244 0.4628376812078244 0.4628376812078244"
-          >
-            <a-animation
-              begin="click"
-              easing="ease-in"
-              attribute="scale"
-              fill="backwards"
-              from="0.1 0.1 0.1"
-              to="1 1 1"
-              dur="150"
-            ></a-animation>
-            <a-animation
-              begin="fusing"
-              easing="ease-in"
-              attribute="scale"
-              fill="forwards"
-              from="1 1 1"
-              to="0.1 0.1 0.1"
-              dur="1500"
-            ></a-animation>
+            cursor="fuse: true; maxDistance: 30"
+            raycaster>
           </a-ring>
+
         </a-camera>
       </a-entity>
 
 
-      </a-entity>
-      <!--PANAH DEPAN-->
       <a-entity href="18.html" position="-5 0 5" rotation="-80 -35 0" scale="1.5 1.5 1.5">
         <a-triangle 
           color="#ffffff" 
@@ -92,7 +144,6 @@
         </a-triangle>
       </a-entity>
 
-      <!--PANAH BELAKANG-->
       <a-entity href="18.html" position="7 0 5" rotation="-80 -75 0" scale="1.5 1.5 1.5">
         <a-triangle 
           color="#ffffff" 
@@ -102,8 +153,19 @@
         </a-triangle>
       </a-entity>
 
+      <a-sky src="asset/17.JPG"></a-sky>
 
-      <a-sky src="asset/17.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
+
+    <!-- ==================== POPUP ==================== -->
+    <script>
+      const btnDini = document.querySelector('#btn-dini');
+      const popupDini = document.querySelector('#popup-dini');
+
+      btnDini.addEventListener('click', () => {
+        popupDini.setAttribute('visible', !popupDini.getAttribute('visible'));
+      });
+    </script>
+
   </body>
 </html>
