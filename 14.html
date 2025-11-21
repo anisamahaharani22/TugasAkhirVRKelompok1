@@ -11,6 +11,9 @@
 
     <script src="aframe-master.js"></script>
     <script src="aframe-href-component.js"></script>
+    
+    <link rel="stylesheet" href="popup.css" />
+
   </head>
 
   <body data-gr-c-s-loaded="true">
@@ -97,6 +100,7 @@
 
       <!-- LOGO TOKO-->
       <a-image
+        id="btn-mun"
         src="asset/Logo Toko.png"
         scale="3 3 3"
         position="-2 3 10"
@@ -105,14 +109,25 @@
 
       <!-- LOGO TOKO BU SUTI BUAH DAN SAYUR-->
       <a-image
+        id="btn-suti"
         src="asset/Logo Toko.png"
         scale="3 3 3"
         position="-3 3 2"
         rotation="0 90 0"
       ></a-image>
 
+      <!-- LOGO TOKO BU UMI'YAH-->
+      <a-image
+        id="btn-umiyah"
+        src="asset/Logo Toko.png"
+        scale="-3 3 9"
+        position="2 3 2"
+        rotation="0 140 0"
+      ></a-image>
+
       <!-- LOGO TOKO MAS EKO SAYUR DAN POLO PENDEM-->
       <a-image
+        id="btn-eko"
         src="asset/Logo Toko.png"
         scale="3 3 3"
         position="-3 3 5"
@@ -121,6 +136,7 @@
 
       <!-- LOGO TOKO BU WASITAH SAYUR-->
       <a-image
+        id="btn-wasitah"
         src="asset/Logo Toko.png"
         scale="3 3 3"
         position="2 3 7"
@@ -129,5 +145,56 @@
 
       <a-sky src="asset/14.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
+
+    <div id="popup-overlay" class="popup-overlay">
+      <div id="popup-wrapper" class="popup-wrapper"></div>
+    </div>
+
+    <!-- ====================== SCRIPT ====================== -->
+    <script type="module">
+      import { showPopup, initPopupClose } from "./popup.js";
+
+      initPopupClose();
+
+      const btnMun = document.getElementById("btn-mun");
+      btnMun.addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/mun_nama.jpg",
+          "asset/detail-toko/mun_detail.jpg",
+        ]);
+      });
+
+      const btnSuti = document.getElementById("btn-suti");
+      btnSuti.addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/suti_nama.jpg",
+          "asset/detail-toko/suti_detail.jpg",
+        ]);
+      });
+
+      const btnUmiyah = document.getElementById("btn-umiyah");
+      btnUmiyah.addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/umiyah_nama.jpg",
+          "asset/detail-toko/umiyah_detail.jpg",
+        ]);
+      });
+
+      const btnEko = document.getElementById("btn-eko");
+      btnEko.addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/eko_nama.jpg",
+          "asset/detail-toko/eko_detail.jpg",
+        ]);
+      });
+      
+      const btnWasitah = document.getElementById("btn-wasitah");
+      btnWasitah.addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/wasitah_nama.jpg",
+          "asset/detail-toko/wasitah_detail.jpg",
+        ]);
+      });
+    </script>
   </body>
 </html>
