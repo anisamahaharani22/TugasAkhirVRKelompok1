@@ -11,13 +11,18 @@
 
     <script src="aframe-master.js"></script>
     <script src="aframe-href-component.js"></script>
-    
-    <link rel="stylesheet" href="popup.css" />
 
+    <link rel="stylesheet" href="popup.css" />
   </head>
 
   <body data-gr-c-s-loaded="true">
     <a-scene canvas="" keyboard-shortcuts="" vr-mode-ui="">
+      <a-assets>
+        <audio id="musik" src="asset/Musik Pasar Oro-oro Dowo.mp3"></audio>
+      </a-assets>
+
+      <!-- Musik -->
+      <a-entity sound="src: #musik; autoplay: true; loop: true"></a-entity>
 
       <!-- LOGO TOKO CAHYONO -->
       <a-image
@@ -27,7 +32,7 @@
         position="-10 2.5 0"
         rotation="0 30 0"
       ></a-image>
-      
+
       <a-entity position="0 1.8 4">
         <a-camera
           id="camera"
@@ -70,29 +75,41 @@
       </a-entity>
 
       <!-- PANAH BELAKANG -->
-      <a-entity href="7.html" position="7 1 4" rotation="-80 -65 100" scale="1.5 1.5 1.5">
-        <a-triangle 
-          color="#ffffff" 
-          vertex-a="0 0.3 0" 
-          vertex-b="-0.3 -0.3 0" 
-          vertex-c="0.3 -0.3 0">
+      <a-entity
+        href="7.html"
+        position="7 1 4"
+        rotation="-80 -65 100"
+        scale="1.5 1.5 1.5"
+      >
+        <a-triangle
+          color="#ffffff"
+          vertex-a="0 0.3 0"
+          vertex-b="-0.3 -0.3 0"
+          vertex-c="0.3 -0.3 0"
+        >
         </a-triangle>
       </a-entity>
 
       <!-- PANAH MASUK -->
-      <a-entity href="23.html" position="3 0.05 -3" rotation="-90 45 90" scale="1.5 1.5 1.5">
-        <a-triangle 
-          color="#ffffff" 
-          vertex-a="0 0.3 0" 
-          vertex-b="-0.3 -0.3 0" 
-          vertex-c="0.3 -0.3 0">
+      <a-entity
+        href="23.html"
+        position="3 0.05 -3"
+        rotation="-90 45 90"
+        scale="1.5 1.5 1.5"
+      >
+        <a-triangle
+          color="#ffffff"
+          vertex-a="0 0.3 0"
+          vertex-b="-0.3 -0.3 0"
+          vertex-c="0.3 -0.3 0"
+        >
         </a-triangle>
       </a-entity>
 
       <a-sky src="asset/8.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
 
-     <div id="popup-overlay" class="popup-overlay">
+    <div id="popup-overlay" class="popup-overlay">
       <div id="popup-wrapper" class="popup-wrapper"></div>
     </div>
 

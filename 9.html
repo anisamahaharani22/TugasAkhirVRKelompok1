@@ -17,6 +17,12 @@
 
   <body data-gr-c-s-loaded="true">
     <a-scene canvas keyboard-shortcuts vr-mode-ui>
+      <a-assets>
+        <audio id="musik" src="asset/Musik Pasar Oro-oro Dowo.mp3"></audio>
+      </a-assets>
+
+      <!-- Musik -->
+      <a-entity sound="src: #musik; autoplay: true; loop: true"></a-entity>
       <a-entity position="0 1.8 4">
         <a-camera
           id="camera"
@@ -139,7 +145,7 @@
       import { showPopup, initPopupClose } from "./popup.js";
 
       initPopupClose();
-      
+
       const btnSubai = document.getElementById("btn-subai");
       btnSubai.addEventListener("click", () => {
         showPopup([

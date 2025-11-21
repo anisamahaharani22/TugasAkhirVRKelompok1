@@ -17,45 +17,50 @@
 
   <body>
     <a-scene>
+      <a-assets>
+        <audio id="musik" src="asset/Musik Pasar Oro-oro Dowo.mp3"></audio>
+      </a-assets>
+
+      <!-- Musik -->
+      <a-entity sound="src: #musik; autoplay: true; loop: true"></a-entity>
 
       <!-- ========================= CAMERA + CURSOR ========================= -->
-          <a-camera
-      look-controls
-      wasd-controls-enabled="false"
-      position="0 1.8 4"
-      raycaster="objects: .clickable; far: 30"
-      cursor="fuse: true; fuseTimeout: 1500"
-    >
-      <a-ring
-        radius-outer="0.06"
-        radius-inner="0.04"
-        position="0 0 -1"
-        material="color: #C78CA0; shader: flat"
+      <a-camera
+        look-controls
+        wasd-controls-enabled="false"
+        position="0 1.8 4"
+        raycaster="objects: .clickable; far: 30"
+        cursor="fuse: true; fuseTimeout: 1500"
       >
-        <!-- Animasi click -->
-        <a-animation
-          begin="click"
-          easing="ease-in"
-          attribute="scale"
-          fill="backwards"
-          from="0.5 0.5 0.5"
-          to="1 1 1"
-          dur="150"
-        ></a-animation>
+        <a-ring
+          radius-outer="0.06"
+          radius-inner="0.04"
+          position="0 0 -1"
+          material="color: #C78CA0; shader: flat"
+        >
+          <!-- Animasi click -->
+          <a-animation
+            begin="click"
+            easing="ease-in"
+            attribute="scale"
+            fill="backwards"
+            from="0.5 0.5 0.5"
+            to="1 1 1"
+            dur="150"
+          ></a-animation>
 
-        <!-- Animasi saat fusing -->
-        <a-animation
-          begin="fusing"
-          easing="ease-in"
-          attribute="scale"
-          fill="forwards"
-          from="1 1 1"
-          to="0.2 0.2 0.2"
-          dur="1500"
-        ></a-animation>
-      </a-ring>
-    </a-camera>
-
+          <!-- Animasi saat fusing -->
+          <a-animation
+            begin="fusing"
+            easing="ease-in"
+            attribute="scale"
+            fill="forwards"
+            from="1 1 1"
+            to="0.2 0.2 0.2"
+            dur="1500"
+          ></a-animation>
+        </a-ring>
+      </a-camera>
 
       <!-- ========================= PANAH DEPAN ========================= -->
       <a-entity
@@ -124,7 +129,6 @@
       ></a-image>
 
       <a-sky src="asset/15.JPG"></a-sky>
-
     </a-scene>
 
     <div id="popup-overlay" class="popup-overlay">
@@ -137,32 +141,26 @@
 
       initPopupClose();
 
-      document
-        .getElementById("btn-kasiati")
-        .addEventListener("click", () => {
-          showPopup([
-            "asset/detail-toko/kasiati_nama.jpg",
-            "asset/detail-toko/kasiati_detail.jpg",
-          ]);
-        });
+      document.getElementById("btn-kasiati").addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/kasiati_nama.jpg",
+          "asset/detail-toko/kasiati_detail.jpg",
+        ]);
+      });
 
-      document
-        .getElementById("btn-lapiah")
-        .addEventListener("click", () => {
-          showPopup([
-            "asset/detail-toko/lapiah_nama.png",
-            "asset/detail-toko/lapiah_detail.jpg",
-          ]);
-        });
+      document.getElementById("btn-lapiah").addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/lapiah_nama.png",
+          "asset/detail-toko/lapiah_detail.jpg",
+        ]);
+      });
 
-      document
-        .getElementById("btn-nurul")
-        .addEventListener("click", () => {
-          showPopup([
-            "asset/detail-toko/nurul_nama.jpg",
-            "asset/detail-toko/nurul_detail.jpg",
-          ]);
-        });
+      document.getElementById("btn-nurul").addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/nurul_nama.jpg",
+          "asset/detail-toko/nurul_detail.jpg",
+        ]);
+      });
     </script>
   </body>
 </html>

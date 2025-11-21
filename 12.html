@@ -11,12 +11,18 @@
 
     <script src="aframe-master.js"></script>
     <script src="aframe-href-component.js"></script>
-  
+
     <link rel="stylesheet" href="popup.css" />
   </head>
 
   <body data-gr-c-s-loaded="true">
     <a-scene canvas="" keyboard-shortcuts="" vr-mode-ui="">
+      <a-assets>
+        <audio id="musik" src="asset/Musik Pasar Oro-oro Dowo.mp3"></audio>
+      </a-assets>
+
+      <!-- Musik -->
+      <a-entity sound="src: #musik; autoplay: true; loop: true"></a-entity>
       <a-entity position="0 1.8 4">
         <a-camera
           id="camera"
@@ -99,7 +105,7 @@
         rotation="0 0 0"
       ></a-image>
 
-       <!-- LOGO TOKO DRINK-->
+      <!-- LOGO TOKO DRINK-->
       <a-image
         id="btn-drink"
         src="asset/Logo Toko.png"

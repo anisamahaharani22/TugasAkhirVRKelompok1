@@ -16,13 +16,16 @@
 
   <body data-gr-c-s-loaded="true">
     <a-scene canvas="" keyboard-shortcuts="" vr-mode-ui="">
-
       <a-assets>
         <img id="nama-toko1" src="#" crossorigin="anonymous" />
         <img id="detail-toko1" src="#" crossorigin="anonymous" />
         <img id="nama-toko2" src="#" crossorigin="anonymous" />
         <img id="detail-toko2" src="#" crossorigin="anonymous" />
+        <audio id="musik" src="asset/Musik Pasar Oro-oro Dowo.mp3"></audio>
       </a-assets>
+
+      <!-- Musik -->
+      <a-entity sound="src: #musik; autoplay: true; loop: true"></a-entity>
 
       <a-entity position="0 1.8 4">
         <a-camera
@@ -65,9 +68,9 @@
         </a-camera>
       </a-entity>
       <!-- sabari -->
-       <a-entity href="#" scale="1.5 1.5 1.5">
+      <a-entity href="#" scale="1.5 1.5 1.5">
         <a-image
-        id="btn-sabari"
+          id="btn-sabari"
           src="asset/Logo Toko.png"
           scale="3 3 3"
           position="-3 2.5 6"
@@ -77,7 +80,7 @@
       <!-- warsinah -->
       <a-entity href="#" scale="1.5 1.5 1.5">
         <a-image
-        id="btn-war"
+          id="btn-war"
           src="asset/Logo Toko.png"
           scale="3 3 3"
           position="4 2.5 5.5"
@@ -87,7 +90,7 @@
       <!-- daryanto -->
       <a-entity href="#" scale="1.5 1.5 1.5">
         <a-image
-        id="btn-daryanto"
+          id="btn-daryanto"
           src="asset/Logo Toko.png"
           scale="3 3 3"
           position="4 2.5 -2"
@@ -95,50 +98,74 @@
         ></a-image>
       </a-entity>
 
-       <!-- PANAH DEPAN -->
-<a-entity href="28.html" position="-5 0.5 5" rotation="-90 0 95" scale="1.5 1.5 1.5">
-  <a-triangle 
-    color="#ffffff" 
-    vertex-a="0 0.3 0" 
-    vertex-b="-0.3 -0.3 0" 
-    vertex-c="0.3 -0.3 0">
-  </a-triangle>
-</a-entity>
+      <!-- PANAH DEPAN -->
+      <a-entity
+        href="28.html"
+        position="-5 0.5 5"
+        rotation="-90 0 95"
+        scale="1.5 1.5 1.5"
+      >
+        <a-triangle
+          color="#ffffff"
+          vertex-a="0 0.3 0"
+          vertex-b="-0.3 -0.3 0"
+          vertex-c="0.3 -0.3 0"
+        >
+        </a-triangle>
+      </a-entity>
 
-<!-- PANAH KIRI -->
-<a-entity href="30.html" position="-0.5 0.05 8" rotation="-90 90 95" scale="1.5 1.5 1.5">
-  <a-triangle 
-    color="#ffffff" 
-    vertex-a="0 0.3 0" 
-    vertex-b="-0.3 -0.3 0" 
-    vertex-c="0.3 -0.3 0">
-  </a-triangle>
-</a-entity>
+      <!-- PANAH KIRI -->
+      <a-entity
+        href="30.html"
+        position="-0.5 0.05 8"
+        rotation="-90 90 95"
+        scale="1.5 1.5 1.5"
+      >
+        <a-triangle
+          color="#ffffff"
+          vertex-a="0 0.3 0"
+          vertex-b="-0.3 -0.3 0"
+          vertex-c="0.3 -0.3 0"
+        >
+        </a-triangle>
+      </a-entity>
 
-<!-- PANAH KANAN -->
-<a-entity href="29.html" position="-1 0.05 -1" rotation="-90 45 90" scale="1.5 1.5 1.5">
-  <a-triangle 
-    color="#ffffff" 
-    vertex-a="0 0.3 0" 
-    vertex-b="-0.3 -0.3 0" 
-    vertex-c="0.3 -0.3 0">
-  </a-triangle>
-</a-entity>
+      <!-- PANAH KANAN -->
+      <a-entity
+        href="29.html"
+        position="-1 0.05 -1"
+        rotation="-90 45 90"
+        scale="1.5 1.5 1.5"
+      >
+        <a-triangle
+          color="#ffffff"
+          vertex-a="0 0.3 0"
+          vertex-b="-0.3 -0.3 0"
+          vertex-c="0.3 -0.3 0"
+        >
+        </a-triangle>
+      </a-entity>
 
       <!-- PANAH BELAKANG -->
-<a-entity href="26.html" position="3 0.5 4" rotation="-90 60 95" scale="1.5 1.5 1.5">
-  <a-triangle 
-    color="#ffffff" 
-    vertex-a="0 0.3 0" 
-    vertex-b="-0.3 -0.3 0" 
-    vertex-c="0.3 -0.3 0">
-  </a-triangle>
-</a-entity>
+      <a-entity
+        href="26.html"
+        position="3 0.5 4"
+        rotation="-90 60 95"
+        scale="1.5 1.5 1.5"
+      >
+        <a-triangle
+          color="#ffffff"
+          vertex-a="0 0.3 0"
+          vertex-b="-0.3 -0.3 0"
+          vertex-c="0.3 -0.3 0"
+        >
+        </a-triangle>
+      </a-entity>
 
       <a-sky src="asset/27.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
 
-      <div id="popup-overlay" class="popup-overlay">
+    <div id="popup-overlay" class="popup-overlay">
       <div id="popup-wrapper" class="popup-wrapper"></div>
     </div>
 
@@ -154,7 +181,7 @@
       btnDaryanto.addEventListener("click", () => {
         showPopup(["asset/detail-toko/daryanto_nd.jpg"]);
       });
-  
+
       btnWar.addEventListener("click", () => {
         showPopup(["asset/detail-toko/warsinah_nd.jpg"]);
       });
