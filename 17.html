@@ -10,53 +10,8 @@
     <script src="aframe-master.js"></script>
     <script src="aframe-href-component.js"></script>
 
-    <style>
-      .popup-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.75);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        backdrop-filter: blur(4px);
-        overflow-y: auto;
-      }
-
-      .popup-wrapper {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: fit-content;
-        max-width: 90vw;
-        max-height: 90vh;
-        padding: 20px;
-      }
-
-      .popup-card-container {
-        background: #ffffff;
-        border-radius: 12px;
-        padding: 18px;
-        width: 420px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
-      }
-
-      .popup-title {
-        font-size: 20px;
-        font-weight: bold;
-        text-align: center;
-      }
-
-      .popup-image {
-        width: 100%;
-        border-radius: 10px;
-        display: block;
-      }
-    </style>
+    <!-- TAMBAHIN INIII -->
+    <link rel="stylesheet" href="popup.css" />
   </head>
 
   <body>
@@ -93,68 +48,22 @@
       <a-sky src="asset/17.JPG"></a-sky>
     </a-scene>
 
+    <!-- TAMBAHIN INII -->
     <div id="popup-overlay" class="popup-overlay">
       <div id="popup-wrapper" class="popup-wrapper"></div>
     </div>
 
     <!-- ====================== SCRIPT ====================== -->
-    <script>
-      const popupOverlay = document.getElementById("popup-overlay");
-      const popupWrapper = document.getElementById("popup-wrapper");
+    <script type="module">
+      import { showPopup, initPopupClose } from "./popup.js";
 
-      //  ini script buat nampilin gambar popup
-      function showPopup(imageList) {
-        popupWrapper.innerHTML = "";
-
-        imageList.forEach((imgSrc, index) => {
-          let title =
-            imageList.length === 1
-              ? "Nama dan Detail Toko"
-              : index === 0
-              ? "Nama Toko"
-              : "Detail Toko";
-
-          // Container
-          const card = document.createElement("div");
-          card.className = "popup-card-container";
-
-          card.innerHTML = `
-            <div class="popup-title">${title}</div>
-            <img class="popup-image" src="${imgSrc}">
-          `;
-
-          popupWrapper.appendChild(card);
-        });
-
-        popupOverlay.style.display = "flex";
-      }
-
-      // Ini buat nutup kalo klik overlay
-      popupOverlay.addEventListener("click", (e) => {
-        if (e.target === popupOverlay) {
-          popupOverlay.style.display = "none";
-        }
-      });
-
-      // MBAK DINI
+      initPopupClose();
+      // COPY PASTE DIBAWAH INI PAKAI NAMA BUTTON TRIGGER TOKO
       const btnDini = document.getElementById("btn-dini");
-      //NANTI COPAS AJA DIBAWAHNYA SESUAI NAMA TOKONYA btn-dini nya ganti ID toko yang mau diklik
-
+      // COPY PASTE DIBAWAH INI PAKAI NAMA BUTTON TRIGGER TOKO
       btnDini.addEventListener("click", () => {
-        showPopup([
-          "asset/17_3_2.jpg", // Nama Toko
-          "asset/17_3.jpg", // Detail Toko
-        ]);
+        showPopup(["asset/17_3_2.jpg", "asset/17_3.jpg"]);
       });
-
-      //nah yang ini jugaaa copas aja ganti assetnya gambar 1 buat nama toko gambar 2 detail toko, tp kalo mau diisi 1 bole
-      // copasnya segini yaa
-      // btnDini.addEventListener("click", () => {
-      //   showPopup([
-      //     "asset/17_3_2.jpg", // Nama Toko
-      //     "asset/17_3.jpg"    // Detail Toko
-      //   ]);
-      // });
     </script>
   </body>
 </html>
