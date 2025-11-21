@@ -11,6 +11,9 @@
 
     <script src="aframe-master.js"></script>
     <script src="aframe-href-component.js"></script>
+  
+    <link rel="stylesheet" href="popup.css" />
+
   </head>
 
   <body data-gr-c-s-loaded="true">
@@ -25,6 +28,7 @@
 
       <!-- LOGO TOKO JUS ORGANIK -->
       <a-image
+        id="btn-jus"
         src="asset/Logo Toko.png"
         scale="10 10 10"
         position="-25 2.5 0"
@@ -94,5 +98,23 @@
 
       <a-sky src="asset/5.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
+    <div id="popup-overlay" class="popup-overlay">
+      <div id="popup-wrapper" class="popup-wrapper"></div>
+    </div>
+
+    <!-- ====================== SCRIPT ====================== -->
+    <script type="module">
+      import { showPopup, initPopupClose } from "./popup.js";
+
+      initPopupClose();
+
+      const btnJus = document.getElementById("btn-jus");
+      btnJus.addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/jus_nama.jpg",
+          "asset/detail-toko/jus_detail.jpg",
+        ]);
+      });
+    </script>
   </body>
 </html>
