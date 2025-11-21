@@ -68,6 +68,7 @@
       <!-- handoko buah -->
        <a-entity href="#" scale="1.5 1.5 1.5">
         <a-image
+        id="btn-handoko"
           src="asset/Logo Toko.png"
           scale="3 3 3"
           position="3 1.5 6"
@@ -78,6 +79,7 @@
       <!-- mbak ririn -->
       <a-entity href="#" scale="1.5 1.5 1.5">
         <a-image
+        id="btn-ririn"
           src="asset/Logo Toko.png"
           scale="3 3 3"
           position="-2 2 -1"
@@ -87,6 +89,7 @@
 <!-- alifah -->
       <a-entity href="#" scale="1.5 1.5 1.5">
         <a-image
+        id="btn-alifah"
           src="asset/Logo Toko.png"
           scale="3 3 3"
           position="4 1.2 0"
@@ -116,5 +119,31 @@
 
       <a-sky src="asset/29.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
+
+     <div id="popup-overlay" class="popup-overlay">
+      <div id="popup-wrapper" class="popup-wrapper"></div>
+    </div>
+
+    <script type="module">
+      import { showPopup, initPopupClose } from "./popup.js";
+
+      initPopupClose();
+
+      const btnAlifah = document.getElementById("btn-alifah");
+      const btnHandoko = document.getElementById("btn-handoko");
+      const btnRirin = document.getElementById("btn-ririn");
+
+      btnAlifah.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/alifah_nd.jpg"]);
+      });
+  
+      btnHandoko.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/handoko_nd.jpg"]);
+      });
+
+      btnRirin.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/ririn_nd.jpg"]);
+      });
+    </script>
   </body>
 </html>

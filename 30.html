@@ -69,6 +69,7 @@
       <!-- pastel -->
        <a-entity href="#" scale="1.5 1.5 1.5">
         <a-image
+        id="btn-paspre"
           src="asset/Logo Toko.png"
           scale="3 3 3"
           position="0 1.5 6"
@@ -79,6 +80,7 @@
       <!-- bu war -->
       <a-entity href="#" scale="1.5 1.5 1.5">
         <a-image
+        id="btn-war"
           src="asset/Logo Toko.png"
           scale="3 3 3"
           position="-5 2 0"
@@ -108,5 +110,28 @@
 
       <a-sky src="asset/30.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
+
+      <div id="popup-overlay" class="popup-overlay">
+      <div id="popup-wrapper" class="popup-wrapper"></div>
+    </div>
+
+    <script type="module">
+      import { showPopup, initPopupClose } from "./popup.js";
+
+      initPopupClose();
+
+      const btnPaspre = document.getElementById("btn-paspre");
+      const btnWar = document.getElementById("btn-war");
+     
+
+      btnPaspre.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/paspre_nd.jpg"]);
+      });
+  
+      btnWar.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/war_nd.jpg"]);
+      });
+
+    </script>
   </body>
 </html>

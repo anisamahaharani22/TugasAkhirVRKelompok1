@@ -64,24 +64,30 @@
           </a-ring>
         </a-camera>
       </a-entity>
+      <!-- sabari -->
        <a-entity href="#" scale="1.5 1.5 1.5">
         <a-image
+        id="btn-sabari"
           src="asset/Logo Toko.png"
           scale="3 3 3"
           position="-3 2.5 6"
           rotation="0 100 0"
         ></a-image>
       </a-entity>
+      <!-- warsinah -->
       <a-entity href="#" scale="1.5 1.5 1.5">
         <a-image
+        id="btn-war"
           src="asset/Logo Toko.png"
           scale="3 3 3"
           position="4 2.5 5.5"
           rotation="0 70 0"
         ></a-image>
       </a-entity>
+      <!-- daryanto -->
       <a-entity href="#" scale="1.5 1.5 1.5">
         <a-image
+        id="btn-daryanto"
           src="asset/Logo Toko.png"
           scale="3 3 3"
           position="4 2.5 -2"
@@ -131,5 +137,31 @@
 
       <a-sky src="asset/27.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
+
+      <div id="popup-overlay" class="popup-overlay">
+      <div id="popup-wrapper" class="popup-wrapper"></div>
+    </div>
+
+    <script type="module">
+      import { showPopup, initPopupClose } from "./popup.js";
+
+      initPopupClose();
+
+      const btnDaryanto = document.getElementById("btn-daryanto");
+      const btnWar = document.getElementById("btn-war");
+      const btnSabari = document.getElementById("btn-sabari");
+
+      btnDaryanto.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/daryanto_nd.jpg"]);
+      });
+  
+      btnWar.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/warsinah_nd.jpg"]);
+      });
+
+      btnSabari.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/sabari_nd.jpg"]);
+      });
+    </script>
   </body>
 </html>
