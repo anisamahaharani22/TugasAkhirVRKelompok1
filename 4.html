@@ -11,20 +11,17 @@
 
     <script src="aframe-master.js"></script>
     <script src="aframe-href-component.js"></script>
+    
+    <link rel="stylesheet" href="popup.css" />
+
   </head>
 
   <body data-gr-c-s-loaded="true">
     <a-scene canvas="" keyboard-shortcuts="" vr-mode-ui="">
 
-      <a-assets>
-        <img id="nama-toko1" src="#" crossorigin="anonymous" />
-        <img id="detail-toko1" src="#" crossorigin="anonymous" />
-        <img id="nama-toko2" src="#" crossorigin="anonymous" />
-        <img id="detail-toko2" src="#" crossorigin="anonymous" />
-      </a-assets>
-
       <!-- LOGO TOKO BAGOPLEK -->
       <a-image
+      id="btn-bagoplek"
         src="asset/Logo Toko.png"
         scale="4 4 4"
         position="-8 2.5 0"
@@ -84,5 +81,23 @@
 
       <a-sky src="asset/4.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
+    <div id="popup-overlay" class="popup-overlay">
+      <div id="popup-wrapper" class="popup-wrapper"></div>
+    </div>
+
+    <!-- ====================== SCRIPT ====================== -->
+    <script type="module">
+      import { showPopup, initPopupClose } from "./popup.js";
+
+      initPopupClose();
+
+      const btnBagoplek = document.getElementById("btn-bagoplek");
+      btnBagoplek.addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/bagoplek_nama.jpeg",
+          "asset/detail-toko/bagoplek_detail.jpeg",
+        ]);
+      });
+    </script>
   </body>
 </html>
