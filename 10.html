@@ -11,16 +11,13 @@
 
     <script src="aframe-master.js"></script>
     <script src="aframe-href-component.js"></script>
+
+    <link rel="stylesheet" href="popup.css" />
+
   </head>
 
   <body data-gr-c-s-loaded="true">
     <a-scene canvas="" keyboard-shortcuts="" vr-mode-ui="">
-      <a-assets>
-        <img id="nama-toko1" src="#" crossorigin="anonymous" />
-        <img id="detail-toko1" src="#" crossorigin="anonymous" />
-        <img id="nama-toko2" src="#" crossorigin="anonymous" />
-        <img id="detail-toko2" src="#" crossorigin="anonymous" />
-      </a-assets>
 
       <a-entity position="0 1.8 4">
         <a-camera
@@ -97,6 +94,7 @@
 
       <!-- LOGO TOKO LUMPUR KENTANG 27 -->
       <a-image
+        id="btn-lumpur-kentang27"
         src="asset/Logo Toko.png"
         scale="3 3 3"
         position="-4 2.2 4.5"
@@ -105,5 +103,24 @@
 
       <a-sky src="asset/10.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
+
+        <div id="popup-overlay" class="popup-overlay">
+      <div id="popup-wrapper" class="popup-wrapper"></div>
+    </div>
+
+        <!-- ====================== SCRIPT ====================== -->
+    <script type="module">
+      import { showPopup, initPopupClose } from "./popup.js";
+
+      initPopupClose();
+
+      const btnLumpurKentang27 = document.getElementById("btn-lumpur-kentang27");
+      btnLumpurKentang27.addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/lumpur_nama.jpg",
+          "asset/detail-toko/lumpur_detail.jpg",
+        ]);
+      });
+    </script>
   </body>
 </html>
