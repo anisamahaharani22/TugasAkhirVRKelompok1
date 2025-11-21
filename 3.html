@@ -11,6 +11,8 @@
 
     <script src="aframe-master.js"></script>
     <script src="aframe-href-component.js"></script>
+  
+    <link rel="stylesheet" href="popup.css" />
   </head>
 
   <body data-gr-c-s-loaded="true">
@@ -25,6 +27,7 @@
 
       <!-- LOGO TOKO PANDAN WANGI -->
       <a-image
+        id="btn-pandan"
         src="asset/Logo Toko.png"
         scale="3 3 3"
         position="3 2.5 7"
@@ -95,5 +98,30 @@
 
       <a-sky src="asset/3.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
+
+    <a-sky src="asset/2.JPG" rotation="0 0 0"></a-sky>
+    </a-scene>
+
+    <a-sky src="asset/13.JPG" rotation="0 0 0"></a-sky>
+    </a-scene>
+
+     <div id="popup-overlay" class="popup-overlay">
+      <div id="popup-wrapper" class="popup-wrapper"></div>
+    </div>
+
+    <!-- ====================== SCRIPT ====================== -->
+    <script type="module">
+      import { showPopup, initPopupClose } from "./popup.js";
+
+      initPopupClose();
+
+      const btnPandan = document.getElementById("btn-pandan");
+      btnPandan.addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/pandan_nama.jpg",
+          "asset/detail-toko/pandan_detail.jpg",
+        ]);
+      });
+    </script>
   </body>
 </html>
