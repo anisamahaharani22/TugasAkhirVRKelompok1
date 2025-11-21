@@ -25,9 +25,9 @@
       </a-assets>
       
       <!--TOKO BU YANTI-->
-      <a-image src="asset/Logo Toko.png" position="-2 4 1" scale="3 3 3" rotation="0 200 0"></a-image>
+      <a-image id="btn-yanti" src="asset/Logo Toko.png" position="-2 4 1" scale="3 3 3" rotation="0 200 0"></a-image>
       <!--P.MISDI-->
-      <a-image src="asset/Logo Toko.png" position="10 1.5 5" scale="6 6 6" rotation="0 90 0"></a-image>
+      <a-image id="btn-misdi" src="asset/Logo Toko.png" position="10 1.5 5" scale="6 6 6" rotation="0 90 0"></a-image>
      
       <a-entity position="0 1.8 4">
         <a-camera
@@ -103,5 +103,27 @@
 
       <a-sky src="asset/22.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
+
+    <div id="popup-overlay" class="popup-overlay">
+      <div id="popup-wrapper" class="popup-wrapper"></div>
+    </div>
+
+    <script type="module">
+      import { showPopup, initPopupClose } from "./popup.js";
+
+      initPopupClose();
+
+      const btnMisdi = document.getElementById("btn-misdi");
+      const btnYanti = document.getElementById("btn-yanti");
+
+      btnMisdi.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/misdi_nd.jpg"]);
+      });
+  
+      btnYanti.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/yanti_nd.jpg"]);
+      });
+    </script>
+
   </body>
 </html>

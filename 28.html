@@ -16,12 +16,6 @@
 
   <body data-gr-c-s-loaded="true">
     <a-scene canvas="" keyboard-shortcuts="" vr-mode-ui="">
-      <a-assets>
-        <img id="nama-toko1" src="#" crossorigin="anonymous" />
-        <img id="detail-toko1" src="#" crossorigin="anonymous" />
-        <img id="nama-toko2" src="#" crossorigin="anonymous" />
-        <img id="detail-toko2" src="#" crossorigin="anonymous" />
-      </a-assets>
 
       <a-entity position="0 1.8 4">
         <a-camera
@@ -63,17 +57,20 @@
           </a-ring>
         </a-camera>
       </a-entity>
-
+<!-- sumarti -->
       <a-entity href="#" scale="1.5 1.5 1.5">
         <a-image
+        id="btn-sumarti"
           src="asset/Logo Toko.png"
           scale="3 3 3"
           position="-1 2.5 -1"
           rotation="0 0 0"
         ></a-image>
       </a-entity>
+
       <a-entity href="#" scale="1.5 1.5 1.5">
         <a-image
+        id="btn-daryanto"
           src="asset/Logo Toko.png"
           scale="3 3 3"
           position="1.5 2 6"
@@ -82,6 +79,7 @@
       </a-entity>
       <a-entity href="#" scale="1.5 1.5 1.5">
         <a-image
+        id="btn-handoko"
           src="asset/Logo Toko.png"
           scale="3 3 3"
           position="-3 2.2 6"
@@ -123,5 +121,31 @@
 
       <a-sky src="asset/28.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
+
+     <div id="popup-overlay" class="popup-overlay">
+      <div id="popup-wrapper" class="popup-wrapper"></div>
+    </div>
+
+    <script type="module">
+      import { showPopup, initPopupClose } from "./popup.js";
+
+      initPopupClose();
+
+      const btnDaryanto = document.getElementById("btn-daryanto");
+      const btnHandoko = document.getElementById("btn-handoko");
+      const btnSumarti = document.getElementById("btn-sumarti");
+
+      btnDaryanto.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/daryanto_nd.jpg"]);
+      });
+  
+      btnHandoko.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/handoko_nd.jpg"]);
+      });
+
+      btnSumarti.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/sumarti_nd.jpg"]);
+      });
+    </script>
   </body>
 </html>

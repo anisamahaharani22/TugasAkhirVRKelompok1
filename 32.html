@@ -69,6 +69,7 @@
      
       <a-entity href="#" scale="1.5 1.5 1.5">
         <a-image
+        id="btn-rizal"
           src="asset/Logo Toko.png"
           scale="3 3 3"
           position="3 1.5 5"
@@ -77,6 +78,7 @@
       </a-entity>
       <a-entity href="#" scale="1.5 1.5 1.5">
         <a-image
+        id="btn-pawon"
           src="asset/Logo Toko.png"
           scale="3 3 3"
           position="-3 2.2 6"
@@ -105,5 +107,29 @@
 
       <a-sky src="asset/32.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
+
+     <div id="popup-overlay" class="popup-overlay">
+      <div id="popup-wrapper" class="popup-wrapper"></div>
+    </div>
+
+    <script type="module">
+      import { showPopup, initPopupClose } from "./popup.js";
+
+      initPopupClose();
+
+      const btnRizal = document.getElementById("btn-rizal");
+      const btnPawon = document.getElementById("btn-pawon");
+  
+
+      btnRizal.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/rizal_nd.jpg"]);
+      });
+  
+      btnPawon.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/pawon_nd.jpg"]);
+      });
+
+
+    </script>
   </body>
 </html>

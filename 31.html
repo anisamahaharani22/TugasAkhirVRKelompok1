@@ -18,13 +18,6 @@
   <body data-gr-c-s-loaded="true">
     <a-scene canvas="" keyboard-shortcuts="" vr-mode-ui="">
 
-      <a-assets>
-        <img id="nama-toko1" src="#" crossorigin="anonymous" />
-        <img id="detail-toko1" src="#" crossorigin="anonymous" />
-        <img id="nama-toko2" src="#" crossorigin="anonymous" />
-        <img id="detail-toko2" src="#" crossorigin="anonymous" />
-      </a-assets>
-
       <a-entity position="0 1.8 4">
         <a-camera
           id="camera"
@@ -68,6 +61,7 @@
 <!-- bu war -->
         <a-entity href="#" scale="1.5 1.5 1.5">
         <a-image
+        id="btn-warsinah"
           src="asset/Logo Toko.png"
           scale="3 3 3"
           position="3 2.5 -1"
@@ -77,6 +71,7 @@
       <!-- ayam -->
        <a-entity href="#" scale="1.5 1.5 1.5">
         <a-image
+        id="btn-wati"
           src="asset/Logo Toko.png"
           scale="3 3 3"
           position="-6 2.5 -1"
@@ -85,6 +80,7 @@
       </a-entity>
       <a-entity href="#" scale="1.5 1.5 1.5">
         <a-image
+        id="btn-ida"
           src="asset/Logo Toko.png"
           scale="3 3 3"
           position="6 1.5 5"
@@ -93,6 +89,7 @@
       </a-entity>
       <a-entity href="#" scale="1.5 1.5 1.5">
         <a-image
+        id="btn-toyo"
           src="asset/Logo Toko.png"
           scale="3 3 3"
           position="-4 2.2 6"
@@ -122,5 +119,36 @@
 
       <a-sky src="asset/31.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
+
+     <div id="popup-overlay" class="popup-overlay">
+      <div id="popup-wrapper" class="popup-wrapper"></div>
+    </div>
+
+    <script type="module">
+      import { showPopup, initPopupClose } from "./popup.js";
+
+      initPopupClose();
+
+      const btnWarsinah = document.getElementById("btn-warsinah");
+      const btnWati = document.getElementById("btn-wati");
+      const btnToyo = document.getElementById("btn-toyo");
+      const btnIda = document.getElementById("btn-ida");
+     
+
+      btnWarsinah.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/warsinah_nd.jpg"]);
+      });
+  
+      btnWati.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/wati_nd.jpg"]);
+      });
+      btnToyo.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/toyo_nd.jpg"]);
+      });
+      btnIda.addEventListener("click", () => {
+        showPopup(["asset/detail-toko/ida_nd.jpg"]);
+      });
+
+    </script>
   </body>
 </html>
