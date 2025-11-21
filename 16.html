@@ -17,13 +17,6 @@
 
   <body data-gr-c-s-loaded="true">
     <a-scene canvas="" keyboard-shortcuts="" vr-mode-ui="">
-      <a-assets>
-        <img id="nama-toko1" src="#" crossorigin="anonymous" />
-        <img id="detail-toko1" src="#" crossorigin="anonymous" />
-        <img id="nama-toko2" src="#" crossorigin="anonymous" />
-        <img id="detail-toko2" src="#" crossorigin="anonymous" />
-      </a-assets>
-
       <a-entity position="0 1.8 4">
         <a-camera
           id="camera"
@@ -115,6 +108,7 @@
 
       <!-- LOGO TOKO YOSA BAKSO KUAH PEDAS-->
       <a-image
+        id="btn-yosa"
         src="asset/Logo Toko.png"
         scale="3 3 3"
         position="-4 2.8 1"
@@ -123,6 +117,7 @@
 
       <!-- LOGO TOKO PECAN DELI-->
       <a-image
+        id="btn-pecan"
         src="asset/Logo Toko.png"
         scale="3 3 3"
         position="3 2.8 1"
@@ -131,6 +126,7 @@
 
       <!-- LOGO TOKO PAK MUN PISANG-->
       <a-image
+        id="btn-mun"
         src="asset/Logo Toko.png"
         scale="3 3 3"
         position="3 2.8 3.2"
@@ -139,6 +135,7 @@
 
       <!-- LOGO TOKO PAK SAMPUN ANEKA BUAH-->
       <a-image
+        id="btn-sampun"
         src="asset/Logo Toko.png"
         scale="3 3 3"
         position="3 2.8 5"
@@ -147,6 +144,7 @@
 
       <!-- LOGO TOKO BU MISTIANAH SAYUR-->
       <a-image
+        id="btn-mistianah"
         src="asset/Logo Toko.png"
         scale="3 3 3"
         position="-3 2.8 7"
@@ -155,5 +153,55 @@
 
       <a-sky src="asset/16.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
+    <div id="popup-overlay" class="popup-overlay">
+      <div id="popup-wrapper" class="popup-wrapper"></div>
+    </div>
+
+    <!-- ====================== SCRIPT ====================== -->
+    <script type="module">
+      import { showPopup, initPopupClose } from "./popup.js";
+
+      initPopupClose();
+
+      const btnPecan = document.getElementById("btn-pecan");
+      btnPecan.addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/pecan_nama.jpg",
+          "asset/detail-toko/pecan_detail.jpg",
+        ]);
+      });
+
+      const btnMun = document.getElementById("btn-mun");
+      btnMun.addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/mun_nama.jpg",
+          "asset/detail-toko/mun_detail.jpg",
+        ]);
+      });
+
+      const btnSampun = document.getElementById("btn-sampun");
+      btnSampun.addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/sampun_nama.jpg",
+          "asset/detail-toko/sampun_detail.jpg",
+        ]);
+      });
+      
+      const btnMistianah = document.getElementById("btn-mistianah");
+      btnMistianah.addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/mistianah_nama.jpg",
+          "asset/detail-toko/mistianah_detail.jpg",
+        ]);
+      });
+
+      const btnYosa = document.getElementById("btn-yosa");
+      btnYosa.addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/yosa_nama.jpg",
+          "asset/detail-toko/yosa_detail.jpg",
+        ]);
+      });
+    </script>
   </body>
 </html>
