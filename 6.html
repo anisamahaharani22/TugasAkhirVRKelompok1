@@ -11,20 +11,15 @@
 
     <script src="aframe-master.js"></script>
     <script src="aframe-href-component.js"></script>
+    <link rel="stylesheet" href="popup.css" />
   </head>
 
   <body data-gr-c-s-loaded="true">
     <a-scene canvas="" keyboard-shortcuts="" vr-mode-ui="">
 
-      <a-assets>
-        <img id="nama-toko1" src="#" crossorigin="anonymous" />
-        <img id="detail-toko1" src="#" crossorigin="anonymous" />
-        <img id="nama-toko2" src="#" crossorigin="anonymous" />
-        <img id="detail-toko2" src="#" crossorigin="anonymous" />
-      </a-assets>
-
       <!-- LOGO TOKO BEDAK 15 -->
       <a-image
+        id="btn-bedak15"
         src="asset/Logo Toko.png"
         scale="3 3 3"
         position="-3 2.5 0"
@@ -33,6 +28,7 @@
 
       <!-- LOGO TOKO JUS ORGANIK -->
        <a-image
+       id="btn-jus"
         src="asset/Logo Toko.png"
         scale="4 4 4"
         position="8 3 0"
@@ -103,5 +99,32 @@
 
       <a-sky src="asset/6.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
+
+    <div id="popup-overlay" class="popup-overlay">
+      <div id="popup-wrapper" class="popup-wrapper"></div>
+    </div>
+
+    <!-- ====================== SCRIPT ====================== -->
+    <script type="module">
+      import { showPopup, initPopupClose } from "./popup.js";
+
+      initPopupClose();
+
+      const btnJus = document.getElementById("btn-jus");
+      btnJus.addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/jus_nama.jpg",
+          "asset/detail-toko/jus_detail.jpg",
+        ]);
+      });
+
+      const btnBedak15 = document.getElementById("btn-bedak15");
+      btnBedak15.addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/bedak15_nama.jpg",
+          "asset/detail-toko/bedak15_detail.jpg",
+        ]);
+      });
+    </script>
   </body>
 </html>
