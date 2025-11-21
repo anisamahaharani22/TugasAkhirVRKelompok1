@@ -11,21 +11,16 @@
 
     <script src="aframe-master.js"></script>
     <script src="aframe-href-component.js"></script>
+
+    <link rel="stylesheet" href="popup.css" />
   </head>
 
   <body data-gr-c-s-loaded="true">
-    <a-scene canvas="" keyboard-shortcuts="" vr-mode-ui="">
-      <a-assets>
-        <img id="nama-toko1" src="#" crossorigin="anonymous" />
-        <img id="detail-toko1" src="#" crossorigin="anonymous" />
-        <img id="nama-toko2" src="#" crossorigin="anonymous" />
-        <img id="detail-toko2" src="#" crossorigin="anonymous" />
-      </a-assets>
-
+    <a-scene canvas keyboard-shortcuts vr-mode-ui>
       <a-entity position="0 1.8 4">
         <a-camera
           id="camera"
-          look-controls=""
+          look-controls
           wasd-controls-enabled="false"
           camera="active:true"
           rotation="-1.3750987083139854 -3.0939720937064483 0"
@@ -38,7 +33,7 @@
             material="color: #C78CA0; shader: flat"
             cursor="maxDistance: 30; fuse: true"
             geometry="primitive:ring;radiusOuter:0.30;radiusInner:0.20"
-            raycaster=""
+            raycaster
             scale="0.4628376812078244 0.4628376812078244 0.4628376812078244"
           >
             <a-animation
@@ -75,8 +70,7 @@
           vertex-a="0 0.3 0"
           vertex-b="-0.3 -0.3 0"
           vertex-c="0.3 -0.3 0"
-        >
-        </a-triangle>
+        ></a-triangle>
       </a-entity>
 
       <!-- PANAH KIRI -->
@@ -91,8 +85,7 @@
           vertex-a="0 0.3 0"
           vertex-b="-0.3 -0.3 0"
           vertex-c="0.3 -0.3 0"
-        >
-        </a-triangle>
+        ></a-triangle>
       </a-entity>
 
       <!-- PANAH KANAN -->
@@ -107,8 +100,7 @@
           vertex-a="0 0.3 0"
           vertex-b="-0.3 -0.3 0"
           vertex-c="0.3 -0.3 0"
-        >
-        </a-triangle>
+        ></a-triangle>
       </a-entity>
 
       <!-- PANAH BELAKANG -->
@@ -123,12 +115,12 @@
           vertex-a="0 0.3 0"
           vertex-b="-0.3 -0.3 0"
           vertex-c="0.3 -0.3 0"
-        >
-        </a-triangle>
+        ></a-triangle>
       </a-entity>
 
       <!-- LOGO TOKO PAK SUBA'I SAYUR -->
       <a-image
+        id="btn-subai"
         src="asset/Logo Toko.png"
         scale="3 3 3"
         position="-4 2.2 1"
@@ -137,6 +129,7 @@
 
       <!-- LOGO TOKO LUMPUR KENTANG 27 -->
       <a-image
+        id="btn-lumpur"
         src="asset/Logo Toko.png"
         scale="3 3 3"
         position="-4 2.2 7.5"
@@ -145,5 +138,32 @@
 
       <a-sky src="asset/9.JPG" rotation="0 0 0"></a-sky>
     </a-scene>
+
+    <div id="popup-overlay" class="popup-overlay">
+      <div id="popup-wrapper" class="popup-wrapper"></div>
+    </div>
+
+    <!-- ====================== SCRIPT ====================== -->
+    <script type="module">
+      import { showPopup, initPopupClose } from "./popup.js";
+
+      initPopupClose();
+
+      const btnLumpur = document.getElementById("btn-lumpur");
+      btnLumpur.addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/lumpur_nama.jpg",
+          "asset/detail-toko/lumpur_detail.jpg",
+        ]);
+      });
+
+      const btnSubai = document.getElementById("btn-subai");
+      btnSubai.addEventListener("click", () => {
+        showPopup([
+          "asset/detail-toko/subai_nama.jpg",
+          "asset/detail-toko/subai_detail.jpg",
+        ]);
+      });
+    </script>
   </body>
 </html>
